@@ -1,4 +1,4 @@
-name: Build IAP God Dylib
+name: Build IAP God Pro
 on:
   push:
   workflow_dispatch:
@@ -13,10 +13,11 @@ jobs:
             -mios-version-min=14.0 \
             -framework Foundation \
             -framework StoreKit \
-            -o IAP_God.dylib \
-            iap_god.m \
+            -framework Security \
+            -o IAP_God_Pro.dylib \
+            hypic_vip.m \
             -Xlinker -dead_strip
       - uses: actions/upload-artifact@v4
         with:
-          name: IAP_God-dylib
-          path: IAP_God.dylib
+          name: IAP_God_Pro-dylib
+          path: IAP_God_Pro.dylib
